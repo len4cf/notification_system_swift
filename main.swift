@@ -1,6 +1,6 @@
 import Foundation
 
-// enum tipos de mensagem
+// enum tipos de mensagem que podem ser enviadas
 enum TipoMensagem {
     case promocao // mensagens de promoção
     case lembrete // mensagens de lembrete
@@ -61,12 +61,12 @@ struct PushNotification: Notificavel {
     }
 }
 
-// criando instâncias de mensagens
+// criando instâncias de mensagens com diferentes tipos
 let mensagemPromocao = Mensagem(tipo: .promocao, conteudo: "Desconto de 20% em todos os produtos!") 
 let mensagemAlerta = Mensagem(tipo: .alerta, conteudo: "Seu pagamento está pendente")
 let mensagemLembrete = Mensagem(tipo: .lembrete, conteudo: "Consulta médica amanhã às 10h")
 
-// criando instâncias de canais de notificação
+// criando instâncias de canais de notificação (email, sms, push)
 let email = Email(enderecoEmail: "cliente@exemplo.com", mensagem: mensagemPromocao) // notificação por email
 let sms = SMS(numeroTelefone: "+5511999999999", mensagem: mensagemAlerta) // notificação por sms
 let push = PushNotification(tokenDispositivo: "device_abc123", mensagem: mensagemLembrete) // notificação por push notification
